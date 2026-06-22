@@ -1,0 +1,281 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🎁 Um Presente Para Você</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Trebuchet MS',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#ffd6ec,#fff5fb);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+flex-direction:column;
+}
+
+h1{
+margin-bottom:20px;
+color:#ff4f9a;
+}
+
+.container{
+position:relative;
+width:300px;
+height:300px;
+cursor:pointer;
+}
+
+.gift{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.box{
+width:220px;
+height:160px;
+background:#ff69b4;
+border-radius:10px;
+position:relative;
+transition:1s;
+}
+
+.lid{
+width:240px;
+height:40px;
+background:#ff87c8;
+position:absolute;
+top:-35px;
+left:-10px;
+border-radius:10px;
+transition:1s;
+transform-origin:left center;
+}
+
+.ribbon-v{
+position:absolute;
+width:30px;
+height:160px;
+background:#ffe44d;
+left:95px;
+}
+
+.ribbon-h{
+position:absolute;
+width:240px;
+height:30px;
+background:#ffe44d;
+top:65px;
+left:-10px;
+}
+
+.bow{
+position:absolute;
+top:-60px;
+left:85px;
+font-size:60px;
+transition:1s;
+}
+
+.letter{
+position:absolute;
+width:320px;
+max-width:90vw;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
+left:50%;
+transform:translateX(-50%);
+bottom:50px;
+opacity:0;
+transition:1.5s;
+text-align:center;
+z-index:10;
+}
+
+.letter h2{
+color:#ff4f9a;
+margin-bottom:15px;
+}
+
+.letter p{
+line-height:1.7;
+color:#444;
+}
+
+.footer{
+margin-top:20px;
+font-size:30px;
+}
+
+.open .lid{
+transform:rotate(-120deg);
+}
+
+.open .bow{
+transform:translateY(-40px) rotate(360deg);
+opacity:0;
+}
+
+.open .letter{
+bottom:180px;
+opacity:1;
+}
+
+.confetti{
+position:absolute;
+font-size:30px;
+animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(600px) rotate(720deg);
+opacity:0;
+}
+}
+
+.tap{
+position:absolute;
+bottom:-50px;
+width:100%;
+text-align:center;
+color:#ff4f9a;
+font-weight:bold;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.1);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🎁 Um Presente Especial</h1>
+
+<div class="container" onclick="openGift()">
+
+<div class="gift">
+
+<div class="lid"></div>
+
+<div class="bow">🎀</div>
+
+<div class="box">
+<div class="ribbon-v"></div>
+<div class="ribbon-h"></div>
+</div>
+
+</div>
+
+<div class="tap">
+💖 Toque no presente 💖
+</div>
+
+</div>
+
+<div class="letter">
+
+<h2>🌸 Para Fla 🌸</h2>
+
+<p>
+Oi Fla, eu sei que as coisas estão difíceis e complicadas,
+sei que você anda um pouco cansada.
+</p>
+
+<br>
+
+<p>
+Mas queria te dizer o quanto eu te admiro e acho você uma mulher incrível,
+você é uma guerreira yanomami forte, uma Tuíre Kayapó.
+</p>
+
+<br>
+
+<p>
+Espero que Tupã te dê forças para aguentar e resistir aos desafios
+que vêm a seguir em sua vida.
+</p>
+
+<br>
+
+<p>
+Saiba que apesar dos problemas, sempre vou estar aqui para te ajudar
+e estar ao seu lado, pois a sua felicidade também é a minha.
+</p>
+
+<div class="footer">
+🐱 🐰 🍭 🍫 🌸 💖 🎀 🧸
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+
+document.querySelector('.container').classList.add('open');
+
+for(let i=0;i<50;i++){
+
+let conf=document.createElement('div');
+
+conf.classList.add('confetti');
+
+const emojis=[
+'🎉',
+'✨',
+'💖',
+'🌸',
+'🐱',
+'🐰',
+'🍬',
+'🍭',
+'🧸'
+];
+
+conf.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+conf.style.left=Math.random()*window.innerWidth+'px';
+
+conf.style.top='150px';
+
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+conf.remove();
+},4000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
